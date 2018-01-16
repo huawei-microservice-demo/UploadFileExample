@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>批量文件上传示例</title>
+</head>
+<body>
+    <h2>批量文件上传示例</h2>
+    <hr/>
+    <form method="POST" enctype="multipart/form-data"
+        action="http://localhost:18080/api/customer-service/upload">
+        <p>
+            文件1：<input type="file" name="file1" />
+        </p>
+        <p>
+            文件2：<input type="file" name="someFile" />
+        </p>
+        <p>
+            <input type="submit" value="上传" />
+        </p>
+    </form>
+</body>
+</html>

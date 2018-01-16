@@ -1,0 +1,15 @@
+cse-config-order: 100
+APPLICATION_ID: uploadapp
+service_description:
+  name: customer-service
+  version: 0.0.1
+cse:
+  service:
+    registry:
+      address: http://127.0.0.1:30100
+      instance:
+        watch: false
+  rest:
+    address: 0.0.0.0:9093
+  uploads:
+    directory: tmp
