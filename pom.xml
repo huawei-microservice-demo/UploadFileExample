@@ -30,6 +30,7 @@
     <modules>
         <module>edge-service</module>
         <module>customer-service</module>
+		<module>upload-service</module>
     </modules>
 
     <build>
