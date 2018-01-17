@@ -14,9 +14,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import io.servicecomb.provider.rest.common.RestSchema;
 
-@RestSchema(schemaId = "customer")
+@RestSchema(schemaId = "upload")
 @RequestMapping(path = "/")
-public class CustomerServiceImpl {
+public class UploadServiceImpl {
   @PostMapping(path = "/upload", produces = MediaType.TEXT_PLAIN_VALUE)
   public String fileUpload(@RequestPart(name = "file1") MultipartFile file1,
       @RequestPart(name = "someFile") Part file2) {

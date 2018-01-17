@@ -18,6 +18,7 @@ package com.huawei.cse.houseapp.edge;
 
 import java.util.Map;
 
+import io.servicecomb.core.Invocation;
 import io.servicecomb.edge.core.AbstractEdgeDispatcher;
 import io.servicecomb.edge.core.CompatiblePathVersionMapper;
 import io.servicecomb.edge.core.EdgeInvocation;
@@ -48,10 +49,16 @@ public class ApiDispatcher extends AbstractEdgeDispatcher {
 //    String pathVersion = pathParams.get("param1");
     String path = "/" + pathParams.get("param1");
 
-    EdgeInvocation edgeInvocation = new EdgeInvocation();
+    EdgeInvocation edgeInvocation = new EdgeInvocation() {
+      protected void createInvocation(Object[] args) {
+        super.createInvocation(args);
+        invocation.addContext("session_id", "my_test_session_id");
+      }
+    };
 //    edgeInvocation.setVersionRule(versionMapper.getOrCreate(pathVersion).getVersionRule());
 
     edgeInvocation.init(microserviceName, context, path, httpServerFilters);
+
     edgeInvocation.edgeInvoke();
   }
 }

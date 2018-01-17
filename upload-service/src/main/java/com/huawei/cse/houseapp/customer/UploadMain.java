@@ -5,7 +5,7 @@ package com.huawei.cse.houseapp.customer;/**
 import io.servicecomb.foundation.common.utils.BeanUtils;
 import io.servicecomb.foundation.common.utils.Log4jUtils;
 
-public class CustomerMain {
+public class UploadMain {
     public static void main(String[] args) throws Exception {
         Log4jUtils.init();
         BeanUtils.init();
