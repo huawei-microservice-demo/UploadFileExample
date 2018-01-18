@@ -18,10 +18,11 @@ package com.huawei.cse.houseapp.edge;
 
 import java.util.Map;
 
-import io.servicecomb.core.Invocation;
-import io.servicecomb.edge.core.AbstractEdgeDispatcher;
-import io.servicecomb.edge.core.CompatiblePathVersionMapper;
-import io.servicecomb.edge.core.EdgeInvocation;
+
+import org.apache.servicecomb.edge.core.AbstractEdgeDispatcher;
+import org.apache.servicecomb.edge.core.CompatiblePathVersionMapper;
+import org.apache.servicecomb.edge.core.EdgeInvocation;
+
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.CookieHandler;
@@ -57,6 +58,7 @@ public class ApiDispatcher extends AbstractEdgeDispatcher {
     };
 //    edgeInvocation.setVersionRule(versionMapper.getOrCreate(pathVersion).getVersionRule());
 
+    context.response().putHeader("xxxxx","sss");
     edgeInvocation.init(microserviceName, context, path, httpServerFilters);
 
     edgeInvocation.edgeInvoke();
