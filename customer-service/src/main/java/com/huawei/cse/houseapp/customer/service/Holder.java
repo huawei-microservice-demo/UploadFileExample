@@ -5,6 +5,13 @@ public class Holder<T> {
 
   private T data;
 
+  public Holder() {
+
+  }
+  public Holder(T data) {
+    this.data = data;
+  }
+
   public int getStatus() {
     return status;
   }

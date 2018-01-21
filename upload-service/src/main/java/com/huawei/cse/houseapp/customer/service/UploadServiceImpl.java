@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RestSchema(schemaId = "upload")
 @RequestMapping(path = "/")
 public class UploadServiceImpl {
+  // this have bug, use Part instead. MultipartFile have same syntax as  Part and can be used interchangeablely.
   @PostMapping(path = "/upload", produces = MediaType.TEXT_PLAIN_VALUE)
   public String fileUpload(@RequestPart(name = "file1") MultipartFile file1) {
     return _fileUpload(file1, null);

@@ -18,6 +18,29 @@ public class CustomerServiceImpl {
 
   @PostMapping(path = "/template")
   public Holder<Person> getHolder(@RequestBody Holder<Person> personHolder) {
+    Person p = personHolder.getData();
+    System.out.println(p.getName());
+    return personHolder;
+  }
+
+  @PostMapping(path = "/templateHolderHolder")
+  public Holder<Person> getHolderHolderHolder(@RequestBody Holder<Holder<Person>> personHolder) {
+    Person p = personHolder.getData().getData();
+    System.out.println(p.getName());
+    return personHolder.getData();
+  }
+
+  @PostMapping(path = "/templateLong")
+  public Holder<Long> getHolderLong(@RequestBody Holder<Long> personHolder) {
+    Long a = new Long(personHolder.getData().longValue());
+    return new Holder<Long>(a);
+  }
+
+  @PostMapping(path = "/templateWrapped")
+  public WapperHolder getHolderWrapped(@RequestBody WapperHolder personHolder) {
+    Holder<Person> tt = personHolder;
+    Person p = tt.getData();
+    System.out.println(p.getName());
     return personHolder;
   }
 }
