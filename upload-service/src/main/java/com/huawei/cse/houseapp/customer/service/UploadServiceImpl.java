@@ -20,13 +20,22 @@ public class UploadServiceImpl {
   // this have bug, use Part instead. MultipartFile have same syntax as  Part and can be used interchangeablely.
   @PostMapping(path = "/upload", produces = MediaType.TEXT_PLAIN_VALUE)
   public String fileUpload(@RequestPart(name = "file1") MultipartFile file1) {
-    return _fileUpload(file1, null);
+    return _fileUpload(file1);
   }
 
   @PostMapping(path = "/upload2", produces = MediaType.TEXT_PLAIN_VALUE)
   public String fileUpload2(@RequestPart(name = "file1") Part file1,
       @RequestPart(name = "fil2") Part file2) {
     return _fileUpload(file1, file2);
+  }
+
+  private String _fileUpload(MultipartFile file1) {
+    try (InputStream is1 = file1.getInputStream()) {
+      String content1 = IOUtils.toString(is1);
+      return file1.getOriginalFilename() + ":" + content1;
+    } catch (IOException e) {
+      throw new IllegalArgumentException(e);
+    }
   }
 
   private String _fileUpload(Part file1, Part file2) {

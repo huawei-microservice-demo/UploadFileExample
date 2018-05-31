@@ -52,7 +52,7 @@ public class ApiDispatcher extends AbstractEdgeDispatcher {
 
     EdgeInvocation edgeInvocation = new EdgeInvocation() {
       protected void createInvocation(Object[] args) {
-        super.createInvocation(args);
+        super.createInvocation();
         invocation.addContext("session_id", "my_test_session_id");
       }
     };
