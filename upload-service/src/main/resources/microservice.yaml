@@ -3,6 +3,7 @@ APPLICATION_ID: uploadapp
 service_description:
   name: upload-service
   version: 0.0.1
+  environment: development
 cse:
   service:
     registry:
@@ -11,5 +12,8 @@ cse:
         watch: false
   rest:
     address: 0.0.0.0:9093
+  monitor:
+    client:
+      enable: false
   uploads:
     directory: tmp

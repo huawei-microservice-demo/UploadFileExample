@@ -3,6 +3,7 @@ APPLICATION_ID: uploadapp
 service_description:
   name: edge-service
   version: 0.0.1
+  environment: development
 cse:
   service:
     registry:
@@ -12,6 +13,9 @@ cse:
   config:
     client:
       refreshMode: 1
+  monitor:
+    client:
+      enable: false
   references:
     version-rule: 0.0.0+
 

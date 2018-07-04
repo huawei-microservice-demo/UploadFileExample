@@ -3,6 +3,7 @@ APPLICATION_ID: uploadapp
 service_description:
   name: customer-service
   version: 0.0.1
+  environment: development
 cse:
   service:
     registry:
@@ -12,5 +13,8 @@ cse:
   config:
     client:
       refreshMode: 1
+  monitor:
+    client:
+      enable: false
   rest:
     address: 0.0.0.0:9999

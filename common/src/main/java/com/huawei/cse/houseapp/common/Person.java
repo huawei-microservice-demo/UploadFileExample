@@ -1,4 +1,4 @@
-package com.huawei.cse.houseapp.customer.service;
+package com.huawei.cse.houseapp.common;
 
 public class Person {
   String name;

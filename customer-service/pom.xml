@@ -15,6 +15,11 @@
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>com.huawei.cse.upload</groupId>
+      <artifactId>commom</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 
   <build>

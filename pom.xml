@@ -32,12 +32,21 @@
             <groupId>com.huawei.paas.cse</groupId>
             <artifactId>cse-solution-service-engine</artifactId>
         </dependency>
+
+        <!-- OBS Java SDK -->
+        <!--<dependency>-->
+            <!--<groupId>com.huawei.storage</groupId>-->
+            <!--<artifactId>esdk-obs-java</artifactId>-->
+            <!--<version>2.1.22</version>-->
+        <!--</dependency>-->
+
     </dependencies>
 
     <modules>
         <module>edge-service</module>
         <module>customer-service</module>
 		<module>upload-service</module>
+        <module>common</module>
     </modules>
 
     <build>

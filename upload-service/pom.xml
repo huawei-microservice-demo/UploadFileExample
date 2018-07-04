@@ -9,13 +9,17 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>upload-service</artifactId>
+  <dependencies>
+    <dependency>
+      <groupId>com.huawei.cse.upload</groupId>
+      <artifactId>commom</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
 
   <properties>
     <main.class>com.huawei.cse.houseapp.customer.UploadMain</main.class>
   </properties>
-
-  <dependencies>
-  </dependencies>
 
   <build>
     <plugins>

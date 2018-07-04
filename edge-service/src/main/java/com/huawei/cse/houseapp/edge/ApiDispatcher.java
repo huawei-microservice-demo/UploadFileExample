@@ -19,6 +19,7 @@ package com.huawei.cse.houseapp.edge;
 import java.util.Map;
 
 
+import io.vertx.core.http.HttpMethod;
 import org.apache.servicecomb.edge.core.AbstractEdgeDispatcher;
 import org.apache.servicecomb.edge.core.CompatiblePathVersionMapper;
 import org.apache.servicecomb.edge.core.EdgeInvocation;
@@ -45,6 +46,25 @@ public class ApiDispatcher extends AbstractEdgeDispatcher {
   }
 
   protected void onRequest(RoutingContext context) {
+    /*
+     * 浏览器合法验证，如果不合法，
+     * * 设置为合法Access-Control-Allow-Headers，返回合法Access-Control-Allow-Headers到浏览器
+    */
+    if(context.request().method() == HttpMethod.OPTIONS){
+      context.response().putHeader("Access-Control-Allow-Origin", "*");
+      context.response().putHeader("Access-Control-Allow-Methods","*");
+      context.response().putHeader("Access-Control-Allow-Headers",
+              context.request().getHeader("Access-Control-Request-Headers"));
+      context.response().end();
+      return;
+    }
+
+
+    context.response().putHeader("Access-Control-Allow-Origin", "*");
+    context.response().putHeader("Access-Control-Allow-Methods","*");
+//请求默认不发送Cookie和HTTP认证信息。如果要把Cookie发到服务器，一方面要服务器同意，指定Access-Control-Allow-Credentials字段
+    context.response().putHeader("Access-Control-Allow-Headers","*");
+
     Map<String, String> pathParams = context.pathParams();
     String microserviceName = pathParams.get("param0");
 //    String pathVersion = pathParams.get("param1");
