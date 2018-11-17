@@ -1,0 +1,31 @@
+cse-config-order: 100
+APPLICATION_ID: uploadapp
+service_description:
+  name: welcome
+  version: 0.0.1
+  environment: development
+  properties:
+    allowCrossApp: false
+cse:
+  service:
+    registry:
+      address: https://cse.cn-north-1.myhuaweicloud.com
+      instance:
+        watch: false
+#  config:
+#    client:
+#      serverUri: https://cse.cn-north-1.myhuaweicloud.com
+#      refreshMode: 1
+#      refresh_interval: 5000
+  monitor:
+    client:
+      enable: false
+      #serverUri: https://cse.cn-north-1.myhuaweicloud.com
+  rest:
+    address: 0.0.0.0:8080
+  #When a local project is deployed as a container outside a cluster, you need to delete all monitor and credentials comments and configure the AK/SK.
+  credentials:
+    accessKey: KZIHDCD2ZFM6TYPVQE02
+    secretKey: xfnbyFxk0H5jYCWc9VuMbOtqT7nVaHlyH9EfzMwp
+    project: cn-north-1
+    akskCustomCipher: default #used to decrypt sk when it is encrypted
