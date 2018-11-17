@@ -4,23 +4,16 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.huawei.cse.upload</groupId>
-    <artifactId>upload</artifactId>
+    <artifactId>consumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <dependencyManagement>
         <dependencies>
-<!--            <dependency>
-                <groupId>org.apache.servicecomb</groupId>
-                <artifactId>java-chassis-dependencies</artifactId>
-                <version>0.6.0-SNAPSHOT</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>   -->
             <dependency>
                 <groupId>com.huawei.paas.cse</groupId>
                 <artifactId>cse-dependency</artifactId>
-                <version>2.3.20</version>
+                <version>2.3.39.8</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -43,10 +36,8 @@
     </dependencies>
 
     <modules>
-        <module>edge-service</module>
-        <module>customer-service</module>
-		<module>upload-service</module>
         <module>common</module>
+		<module>welcome</module>
     </modules>
 
     <build>
@@ -127,6 +118,38 @@
                         </execution>
                     </executions>
                 </plugin>
+                <plugin>
+                    <groupId>io.swagger</groupId>
+                    <artifactId>huawei-swagger-codegen-maven-plugin</artifactId>
+                    <version>2.2.6</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>generate</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <skipOverwrite>true</skipOverwrite>
+                        <!-- generateAll or generateInterface -->
+                        <generateLevel>generateAll</generateLevel>
+                        <!-- specify the swagger yaml -->
+                        <inputSpecs>
+                            <param>./yaml/swagger.yaml</param>
+                        </inputSpecs>
+                        <groupId>com.huawei.paas.cse.demo</groupId>
+                        <artifactId>cse-test</artifactId>
+                        <artifactVersion>1.0.0</artifactVersion>
+                        <output>target/swagger</output>
+                        <serviceName>yami</serviceName>
+                        <cseVersion>2.3.35</cseVersion>
+                        <!-- target to generate -->
+                        <!--CSE-Java (JAX-RS)  | CSE-Java (SpringMVC) | CSE-Java (POJO) -->
+                        <language>CSE-Java (JAX-RS)</language>
+                    </configuration>
+                </plugin>
+
+
             </plugins>
         </pluginManagement>
     </build>
